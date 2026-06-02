@@ -25,7 +25,7 @@ int main(){
 
 	cout<<"Bind sucessful to port 8080\n";
 
-	if(listen(server_fd,1200)<1){
+	if(listen(server_fd,1200)<0){
 		perror("Listen fialed ");
 		return 1;
 	}
@@ -38,6 +38,21 @@ int main(){
 		return 1;
 	}
 	cout<<"Client connected\n";
+	char buffer[4096]; //size of one page in linux.
+	ssize_t bytes_read=read(client_fd,buffer,size(buffer)-1); //read is a blocking system call.
+	if(bytes_read<0){
+		perror("Read Failed");
+		
+	}
+
+
+
+
+
+
+
+
+
 	close(client_fd);
 
 	close (server_fd);
