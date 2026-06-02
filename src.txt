@@ -1,0 +1,32 @@
+For tiny demo type app
+
+socket
+bind
+listen
+accept
+read
+write
+
+150 lines.
+
+For Good resume project
+
+HTTP parsing
+Static file serving
+Logging
+Thread pool
+Configuration
+Proper classes
+RAII wrappers
+
+~1500–3000 lines
+-----------------------------------------------------------------------------
+epoll
+keep-alive
+thread pool
+MIME types
+request parser
+response builder
+connection manager
+
+~3000–8000+ lines
