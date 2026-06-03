@@ -1,15 +1,37 @@
-const char* response =
-    "HTTP/1.1 200 OK\r\n"
-    "Content-Type: text/plain\r\n"
-    "Content-Length: 11\r\n"
-    "\r\n"
-    "Hello World";
-
-write(
-    client_fd,
-    response,
-    strlen(response)
-);
-
-
-questions: if i write does it automatically sent to nic and network and to client?? same when is read performed. I hope you get the question.
+http-server/
+│
+├── src/
+│   ├── main.cpp
+│   │
+│   ├── net/
+│   │   ├── socket.cpp
+│   │   └── server.cpp
+│   │
+│   ├── http/
+│   │   ├── request.cpp
+│   │   ├── response.cpp
+│   │   └── parser.cpp
+│   │
+│   └── utils/
+│       └── logger.cpp
+│
+├── include/
+│   ├── net/
+│   │   ├── socket.hpp
+│   │   └── server.hpp
+│   │
+│   ├── http/
+│   │   ├── request.hpp
+│   │   ├── response.hpp
+│   │   └── parser.hpp
+│   │
+│   └── utils/
+│       └── logger.hpp
+│
+├── public/
+│
+├── tests/
+│
+├── build/
+│
+└── Makefile

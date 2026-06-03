@@ -42,16 +42,21 @@ int main(){
 	ssize_t bytes_read=read(client_fd,buffer,size(buffer)-1); //read is a blocking system call.
 	if(bytes_read<0){
 		perror("Read Failed");
-		
+		//should i return 1, i think not also why is client connection not in some while loop
+		return 1; //what about connecting with other requests in waiting room
 	}
 
+    //what about if bytes_read is 0, logic for that
+	buffer[bytes_read]='\0';
+	cout<<buffer<<endl; //why endl here why no \n
 
-
-
-
-
-
-
+	const char *response=
+		"HTTP/1.1 200 OK \r\n"
+		"Content-Type: text/plain\r\n"
+		"Content-Length: 11\r\n"
+		"\r\n"
+		"Hello World";
+	write(client_fd,response,strlen(response));
 
 	close(client_fd);
 
