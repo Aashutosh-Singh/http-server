@@ -15,6 +15,7 @@ enum class HttpMethod{
 };
 
 class HttpRequest{
+    public:
     HttpRequest()=default;
 
     void set_method(HttpMethod method);
