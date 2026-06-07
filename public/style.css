@@ -1,0 +1,57 @@
+/* 1. Reset default browser spacing and set a modern font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Center everything on the screen and add a soft background color */
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 3. Style the content container box */
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* 4. Style the text elements */
+h1 {
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+p {
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* 5. Style the button with a hover effect */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

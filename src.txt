@@ -25,7 +25,7 @@ epoll
 keep-alive
 thread pool
 MIME types
-request parser  http/parser.hpp &  http/parser.cpp
+request parser  
 response builder
 connection manager
 
@@ -103,4 +103,11 @@ Multiple concurrent clients
 Thread pool or event loop
 Graceful shutdown
 
-Handler abstraction???
+-Next->
+Single-threaded server
+    ↓
+Thread-per-connection
+    ↓
+Thread pool
+    ↓
+epoll

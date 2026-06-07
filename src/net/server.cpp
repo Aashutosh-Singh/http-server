@@ -31,8 +31,9 @@ void Server::start()
             std::cerr << "accept() failed\n";
             continue;
         }
-        Socket client_socket(client_fd);
+        Socket client_socket(client_fd); //giving ownership to object.
         std::cout << "Client connected \n";
+        //reading the chunk
         const char *response =
             "HTTP/1.1 200 OK\r\n"
             "Content-Type: text/plain\r\n"
