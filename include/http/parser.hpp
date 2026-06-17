@@ -1,7 +1,7 @@
 #pragma once
 #include "request.hpp"
 #include <string>
-
+#include<iostream>
 class HttpParser
 {
     public:

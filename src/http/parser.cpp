@@ -1,7 +1,7 @@
 #include "../../include/http/parser.hpp"
 #include <sstream>
 #include <stdexcept>
-
+#include <iostream>
 HttpRequest HttpParser::parse(const std::string& raw_request){
     HttpRequest request;
     //method, path,version,headers_
@@ -22,6 +22,7 @@ HttpRequest HttpParser::parse(const std::string& raw_request){
         if(line.empty())break;
         parse_header_line(line,request);
     }
+    
     return request;
     
 }
@@ -55,6 +56,7 @@ void HttpParser::parse_request_line(const std::string& line, HttpRequest& reques
     if(!(stream>>method>>path>>version)){
         throw std::runtime_error("Invalid request line");
     }
+    std::cout<<method<<" "<<path<<" "<<version<<"\n";
     request.set_method(parse_method(method));
     request.set_path(path);
     request.set_version(version);

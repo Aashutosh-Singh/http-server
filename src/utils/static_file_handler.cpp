@@ -5,11 +5,7 @@
 StaticFileHandler::StaticFileHandler(std::filesystem::path web_root) : web_root_(std::filesystem::weakly_canonical(std::move(web_root))) {}
 // weakly_canonical converts path into absolute,nique,cleanest version of path resolving .or../ etc. it works even when path doesn't exits on computer, hence doesn't crashes like filesytem::canonical();
 
-HttpResponse StaticFileHandler::handle(const HttpRequest &request) const
-{ // the const here promises that it won't modify variables of its own class
-    HttpResponse response;
-    std::filesystem::path file_path = web_root_ / request.path().substr(1);
-}
+
 // helpers
 bool StaticFileHandler::is_within_root(const std::filesystem::path &root, const std::filesystem::path &resolved)
 {
@@ -36,9 +32,10 @@ std::string_view StaticFileHandler::mime_type(const std::filesystem::path &path)
         { ".woff",  "font/woff"                      },
         { ".woff2", "font/woff2"                     },
         { ".webp",  "image/webp"                     },
+        { ".pdf",   "application/pdf"                },
     };
     auto ext=path.extension().string();
-    for(auto& c:ext)c==static_cast<char>(std::tolower(c));
+    for(auto& c:ext)c=static_cast<char>(std::tolower(c));
 
     auto it=table.find(ext);
     return it!=table.end()? it->second : "application/octet-stream";

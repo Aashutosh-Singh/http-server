@@ -24,7 +24,7 @@ public:
     const std::string &reason_phrase() const noexcept;
 
     [[nodiscard]]
-    const int status_code() const noexcept;
+    int status_code() const noexcept;
 
     [[nodiscard]]
     const std::string &body() const noexcept;

@@ -111,3 +111,11 @@ Thread-per-connection
 Thread pool
     ↓
 epoll
+
+resource limits and performance optimization
+
+
+
+Learn how to prepare documentation.  //what is non blocking etc in epoll.  //sendfile() optimization.
+
+g++ -std=c++17 -Wall -Wextra -Iinclude src/main.cpp src/net/socket.cpp src/net/server.cpp src/http/request.cpp src/http/parser.cpp src/http/response.cpp src/http/connection.cpp src/utils/static_file_handler.cpp -o build/server

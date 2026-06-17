@@ -8,7 +8,7 @@
 
 /* 2. Center everything on the screen and add a soft background color */
 body {
-    background-color: #f0f2f5;
+    background-color: #212122;
     min-height: 100vh;
     display: flex;
     justify-content: center;

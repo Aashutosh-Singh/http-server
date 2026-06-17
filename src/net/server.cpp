@@ -1,5 +1,5 @@
 #include "../../include/net/server.hpp"
-
+#include "../../include/http/connection.hpp"
 #include <arpa/inet.h>
 #include <cstdlib>
 #include <cstring>
@@ -31,18 +31,10 @@ void Server::start()
             std::cerr << "accept() failed\n";
             continue;
         }
-        Socket client_socket(client_fd); //giving ownership to object.
+        Connection conn(client_fd);
         std::cout << "Client connected \n";
-        //reading the chunk
-        const char *response =
-            "HTTP/1.1 200 OK\r\n"
-            "Content-Type: text/plain\r\n"
-            "Content-Length: 12\r\n"
-            "\r\n"
-            "Hellow World";
-        send(client_socket.fd(),
-             response,
-             sizeof(response) - 1, 0);
+        
+        conn.handle();
     }
 }
 

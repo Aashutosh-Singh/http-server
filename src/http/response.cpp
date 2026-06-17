@@ -1,8 +1,7 @@
 #include "../../include/http/response.hpp"
 #include <sstream> //for serialization
 
-namespace http
-{
+
     HttpResponse::HttpResponse() : version_("HTTP/1.1"),
                                    status_code_(200),
                                    reason_phrase_("OK")
@@ -24,7 +23,7 @@ namespace http
         headers_["Content-Length"] = std::to_string(body_.size());
     }
 
-    const int HttpResponse::status_code() const noexcept
+    int HttpResponse::status_code() const noexcept
     {
         return status_code_;
     }
@@ -53,4 +52,3 @@ namespace http
         stream << body_; //you can try to stream only a chunk of the whole body;
         return stream.str();
     }
-}

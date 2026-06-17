@@ -12,7 +12,8 @@ public:
     private:
     std::filesystem::path web_root_;
 
-    static std::string_view mime_type(const std::filesystem::path& path);
+    static std::string_view mime_type(const std::filesystem::path& path);  
+    //mime type tells browser what kind of file are we dealing with like image/png text/html, application/json application/pdf etc.
 
     static bool is_within_root(const std::filesystem::path& root, const std::filesystem::path&resolved);
 

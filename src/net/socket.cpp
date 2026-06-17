@@ -30,7 +30,7 @@ bool Socket:: is_valid()const noexcept{
 
 void Socket:: reset(int fd)noexcept {
     if(fd_>=0){
-        close(fd);
+        close(fd_);
     }
     fd_=fd;
 }

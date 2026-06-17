@@ -5,7 +5,7 @@ class Socket{
     public:
         Socket()noexcept;
 
-        explicit Socket(int fd);
+        explicit Socket(int fd)noexcept;
 
         ~Socket();
 
