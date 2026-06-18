@@ -16,8 +16,9 @@ private:
     std::string read_request();
     void send_response (const HttpResponse& response);
     void send_all(const std:: string& data);
+    int read_body(const HttpRequest& request);
 
-    static bool request_headers_complete(const std:: string& data);
+    bool should_keep_alive(const HttpRequest& request)const;
 
     Socket client_;
     static constexpr std:: size_t buffer_size_=4096;
