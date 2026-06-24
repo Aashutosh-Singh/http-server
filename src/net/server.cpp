@@ -1,5 +1,6 @@
 #include "../../include/net/server.hpp"
 #include "../../include/http/connection.hpp"
+#include "../../include/utils/thread_pool.hpp"
 #include <arpa/inet.h>
 #include <cstdlib>
 #include <cstring>
@@ -16,6 +17,7 @@ void Server::start()
     configure_socket();
     bind_socket();
     start_listening();
+    ThreadPool pool(4);
     std::cout << "Server listening on port " << port_ << '\n';
     while (true)
     {
@@ -31,10 +33,12 @@ void Server::start()
             std::cerr << "accept() failed\n";
             continue;
         }
-        Connection conn(client_fd);
+
         std::cout << "Client connected \n";
-        
-        conn.handle();
+        pool.submit([client_fd](){
+            Connection conn(client_fd);
+            conn.handle();
+        });
     }
 }
 
